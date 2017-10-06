@@ -58,7 +58,7 @@ desired effect
 </div>
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
-    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="/js/datatable.js" type="text/javascript"></script>
     @stack('scripts')
     <link href='/css/datatable.css' rel='stylesheet' type='text/css'>
 
