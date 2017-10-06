@@ -8,9 +8,7 @@
 <body class="hold-transition login-page">
     <div id="app" v-cloak>
         <div class="login-box">
-            <div class="login-logo">
-                <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
-            </div><!-- /.login-logo -->
+
 
         @if (count($errors) > 0)
             <div class="alert alert-danger">
@@ -24,15 +22,18 @@
         @endif
 
         <div class="login-box-body">
+            <div class="login-logo">
+                <a href="{{ url('/home') }}"><h3><b>Centralized Information Management System </b>v.0</h3></a>
+            </div><!-- /.login-logo -->
         <p class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>
 
         <login-form name="{{ config('auth.providers.users.field','email') }}"
                     domain="{{ config('auth.defaults.domain','') }}"></login-form>
 
-        @include('adminlte::auth.partials.social_login')
+        <!--@include('adminlte::auth.partials.social_login')
 
         <a href="{{ url('/password/reset') }}">{{ trans('adminlte_lang::message.forgotpassword') }}</a><br>
-        <a href="{{ url('/register') }}" class="text-center">{{ trans('adminlte_lang::message.registermember') }}</a>
+        <!--<a href="{{ url('/register') }}" class="text-center">{{ trans('adminlte_lang::message.registermember') }}</a>-->
 
     </div>
 
