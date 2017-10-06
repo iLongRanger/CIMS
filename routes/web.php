@@ -17,9 +17,13 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
-//        // Uses Auth Middleware
-//    });
+    //        // Uses Auth Middleware
+    //    });
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+
+    Route::get('users/datatable', 'UsersController@datatable');
+    Route::resource('users', 'UsersController');
+
 });
