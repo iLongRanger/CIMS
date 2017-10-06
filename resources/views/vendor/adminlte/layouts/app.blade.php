@@ -33,6 +33,7 @@ desired effect
 <div id="app" v-cloak>
     <div class="wrapper">
 
+
     @include('adminlte::layouts.partials.mainheader')
 
     @include('adminlte::layouts.partials.sidebar')
@@ -57,6 +58,13 @@ desired effect
 </div>
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
+    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    @stack('scripts')
+    <link href='/css/datatable.css' rel='stylesheet' type='text/css'>
+
+
+
+
 @show
 
 </body>

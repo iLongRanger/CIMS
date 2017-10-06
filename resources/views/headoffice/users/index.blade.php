@@ -23,16 +23,61 @@
                     </div>
                     <div class="box-body">
 
-
-
-
-
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="box box-primary">
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table id="users-table" class="table table-striped">
+                                                    <thead>
+                                                    <th>
+                                                        <a class="action-create-entry" href="/users/create">
+                                                            <i class="fa fa-plus"></i>
+                                                        </a>
+                                                    </th>
+                                                    <tr>
+                                                        <th>Id</th>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Created At</th>
+                                                        <th>Last Updated</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div><!-- /.col -->
+                                        </div><!-- /.row -->
+                                    </div><!-- ./box-body -->
+                                </div><!-- /.box -->
+                            </div>
+                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
-
-            </div>
-        <!--</div>-->
+        </div>
     </div>
+
 @endsection
+
+@stack('scripts')
+@push('scripts')
+    <script type="text/javascript">
+        $(function() {
+            $('#users-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: 'http://cims.dev/users/datatable',
+                columns: [
+
+                    { data: 'id', name: 'id' },
+                    { data: 'name', name: 'name' },
+                    { data: 'email', name: 'email' },
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'updated_at', name: 'updated_at' }
+                ]
+            });
+        });
+    </script>
+@endpush

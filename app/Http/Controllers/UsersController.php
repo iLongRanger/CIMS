@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Yajra\DataTables\Facades\Datatables;
+
+
 
 class UsersController extends Controller
 {
@@ -11,9 +15,16 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function datatable()
+    {
+        return Datatables::of(User::query())->make(true);
+    }
     public function index()
     {
-        return view('headoffice.users.index');
+        $users = User::all();
+        return view('headoffice.users.index', compact('users'));
     }
 
     /**
@@ -23,7 +34,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view ('headoffice.users.create');
     }
 
     /**
