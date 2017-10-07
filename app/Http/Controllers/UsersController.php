@@ -15,12 +15,20 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /**
+     * Function for actions on datatable
+     */
 
 
     public function datatable()
     {
         return Datatables::of(User::query())->make(true);
     }
+
+
+
+
+
     public function index()
     {
         $users = User::all();

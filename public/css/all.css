@@ -58,6 +58,11 @@ a {
   background-color: transparent;
 }
 
+reg{
+
+    background-color: black;
+}
+
 a:active,
 a:hover {
   outline: 0;
@@ -3080,6 +3085,7 @@ th {
 
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #f9f9f9;
+
 }
 
 .table-hover > tbody > tr:hover {

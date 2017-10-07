@@ -24,7 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
     #adminlte_routes
 
 
-    Route::get('users/datatable', 'UsersController@datatable');
-    Route::resource('users', 'UsersController');
+Route::get('users/datatable', 'UsersController@datatable');
+Route::resource('users', 'UsersController');
 
 });

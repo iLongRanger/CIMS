@@ -10,7 +10,7 @@
             <!--<div class="col-md-8 col-md-offset-2">-->
 
                 <!-- Default box -->
-                <div class="box">
+                <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">System Users</h3>
 
@@ -25,26 +25,25 @@
 
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="box box-primary">
+                                <div    >
                                     <div class="box-body">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <table id="users-table" class="table table-striped">
                                                     <thead>
-                                                    <th>
-                                                        <a class="action-create-entry" href="/users/create">
-                                                            <i class="fa fa-plus"></i>
-                                                        </a>
-                                                    </th>
                                                     <tr>
-                                                        <th>Id</th>
+
+
+                                                      <!--  <th>Id</th>-->
                                                         <th>Name</th>
                                                         <th>Email</th>
                                                         <th>Created At</th>
-                                                        <th>Last Updated</th>
+                                                        <th>Updated</th>
+
                                                     </tr>
                                                     </thead>
-                                                    <tbody></tbody>
+                                                    <tbody>
+                                                    </tbody>
                                                 </table>
                                             </div><!-- /.col -->
                                         </div><!-- /.row -->
@@ -64,20 +63,71 @@
 @stack('scripts')
 @push('scripts')
     <script type="text/javascript">
-        $(function() {
+      $(function() {
             $('#users-table').DataTable({
                 processing: true,
                 serverSide: true,
+                search: {
+                    caseInsensitive: true
+                },
+
+
                 ajax: 'http://cims.dev/users/datatable',
+
+
+
                 columns: [
 
-                    { data: 'id', name: 'id' },
-                    { data: 'name', name: 'name' },
-                    { data: 'email', name: 'email' },
-                    { data: 'created_at', name: 'created_at' },
-                    { data: 'updated_at', name: 'updated_at' }
+
+                 // { data: 'id', name: 'id' },
+                  { data: 'name', name: 'name' },
+                  { data: 'email', name: 'email' },
+                  { data: 'created_at', name: 'created_at'     },
+                  { data: 'updated_at', name: 'updated_at' }
+
+
+
+
+
                 ]
             });
         });
+
+      $(document).ready(function() {
+        var table = $('#users-table').DataTable();
+
+
+        $('#users-table tbody').on( 'click', 'tr', function () {
+          if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+          }
+          else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+          }
+          var custid = $(this).children(":first").text();
+          var custString = custid.toString();
+
+         // var custidFix = custString.substr(0, custString.indexOf(','));
+
+
+
+          var link;
+          link = 'users/edit/' + custString;
+          window.location = link;
+
+        } );
+      });
+
     </script>
+
+    <script>
+      $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+
+    </script>
+
 @endpush
+
+
