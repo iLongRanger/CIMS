@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
+use App\Photo;
 use Yajra\DataTables\Facades\Datatables;
+use Illuminate\Support\Facades\Session;
 
 
 
@@ -25,10 +29,6 @@ class UsersController extends Controller
         return Datatables::of(User::query())->make(true);
     }
 
-
-
-
-
     public function index()
     {
         $users = User::all();
@@ -42,7 +42,9 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view ('headoffice.users.create');
+        $roles = Role::pluck('name', 'id')->all();
+        return view('headoffice.users.create', compact('roles'));
+
     }
 
     /**
@@ -51,9 +53,26 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        //function for password
+        if(trim($request->password)== ' '){
+            $input = $request->except('password');
+        }else{
+            $input = $request->all(); // to persist data on database
+        }
+        if ($file =$request->file('photoID')){ // will validate if photo existed before saving to database
+            $name = time() .$file->getClientOriginalName(); // will get the name og the photo from the user with a time appended on it
+            $file->move('images', $name); //will move the photo on images directory with a name on it
+            $photo=Photo::create(['file'=>$name]); // create the photo
+            $input['photoID'] = $photo->id; // will save photo id and name
+        }
+        //to encrypt password
+        $input['password']= bcrypt($request->password);
+        // if photo is not existed
+        User::create($input); // will save everything on database
+        Session::flash('created_user', 'The user has been created.');
+        return redirect('/users');
     }
 
     /**

@@ -5,6 +5,22 @@
 @endsection
 
 @section('main-content')
+
+    @if(Session::has('deleted_user'))
+
+        <p class="alert alert-danger">{{session('deleted_user')}}</p>
+    @endif
+
+    @if(Session::has('created_user'))
+
+        <p class="alert alert-success">{{session('created_user')}}</p>
+    @endif
+
+    @if(Session::has('updated_user'))
+
+        <p class="alert alert-warning">{{session('updated_user')}}</p>
+    @endif
+
     <div class="container-fluid spark-screen">
         <div class="row">
             <!--<div class="col-md-8 col-md-offset-2">-->

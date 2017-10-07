@@ -38,7 +38,7 @@
                 <a href="#"><i class="glyphicon glyphicon-globe"></i><span>Head Office</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="/users"><i class="glyphicon glyphicon-user"></i><span>System Users</span></a></li>
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
+                    <li><a href="/users/create"><i class="glyphicon glyphicon-plus text-success"></i><span>New User</span></a></li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->
