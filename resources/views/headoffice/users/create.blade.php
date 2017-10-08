@@ -11,7 +11,7 @@
             <!--<div class="col-md-8 col-md-offset-2">-->
 
             <!-- Default box -->
-            <div class="box">
+            <div class="box  box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">Create New User</h3>
 
@@ -42,6 +42,11 @@
                     <div class="form-group">
                         {!!Form::label('role_id', 'Role:')!!}
                         {!!Form::select('role_id', [''=>'Choose Position'] + $roles, null, ['class'=>'form-control'])!!}
+                    </div>
+
+                    <div class="form-group form-control-required">
+                        {!!Form::label('department_id', 'Department:')!!}
+                        {!!Form::select('department_id', [''=>'Choose Department'] + $departments, null, ['class'=>'form-control'])!!}
                     </div>
 
                     <div class="form-group">

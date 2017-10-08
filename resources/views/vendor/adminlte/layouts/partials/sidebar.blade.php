@@ -33,14 +33,18 @@
         <ul class="sidebar-menu">
 
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
+            <li class="active">
+                <a href="{{ url('home') }}"><i class='fa fa-home text-red'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a>
+            </li>
             <li class="treeview">
-                <a href="#"><i class="glyphicon glyphicon-globe"></i><span>Head Office</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class="fa fa-globe text-lime"></i><span>Head Office</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="/users"><i class="glyphicon glyphicon-user"></i><span>System Users</span></a></li>
-                    <li><a href="/users/create"><i class="glyphicon glyphicon-plus text-success"></i><span>New User</span></a></li>
+                    <li><a href="/users"><i class="fa fa-user text-aqua"></i><span>System Users</span></a></li>
+                    <li><a href="/users/create"><i class="fa fa-user-plus text-success"></i><span>New User</span></a></li>
                 </ul>
             </li>
+
+
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Role;
 use App\Photo;
+use App\Department;
 use Yajra\DataTables\Facades\Datatables;
 use Illuminate\Support\Facades\Session;
 
@@ -43,7 +44,8 @@ class UsersController extends Controller
     public function create()
     {
         $roles = Role::pluck('name', 'id')->all();
-        return view('headoffice.users.create', compact('roles'));
+        $departments = Department::pluck('name', 'id')->all();
+        return view('headoffice.users.create', compact('roles', 'departments'));
 
     }
 
