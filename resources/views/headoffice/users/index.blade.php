@@ -21,7 +21,7 @@
         <p class="alert alert-warning">{{session('updated_user')}}</p>
     @endif
 
-    <div class="container-fluid spark-screen">
+    <div class="container-fluid spark-screen text-black">
         <div class="row">
             <!--<div class="col-md-8 col-md-offset-2">-->
 
@@ -50,7 +50,7 @@
                                                     <tr>
 
 
-                                                        <th>User Number/th>
+                                                        <th>User Number</th>
                                                         <th>Name</th>
                                                         <th>Email</th>
                                                         <th>Created At</th>

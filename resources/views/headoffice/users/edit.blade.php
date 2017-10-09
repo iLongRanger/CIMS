@@ -11,83 +11,104 @@
          xmlns:height="http://www.w3.org/1999/xhtml">
 
         <div class="row">
-            <!--<div class="col-md-8 col-md-offset-2">-->
+            @include('includes.form_error')
+            <div class="col-md-3">
+                <!-- Profile Image -->
+                <div class="box box-primary">
+                    <div class="box-body box-profile">
+                        <img class=" img-responsive img-rounded" src="{{$user->photo ? $user->photo->file:'/img/avatar.png'}}" alt="User profile picture">
 
-            <!-- Default box -->
-            <div class="box  box-info">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Update/View User Information</h3>
+                        <h3 class="profile-username text-center text-black">{{$user->name}}</h3>
 
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                            <i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                            <i class="fa fa-times"></i></button>
+                        <p class="text-muted text-center text-black">{{$user->role->name}}</p>
+
+                        <ul class="list-group list-group-unbordered">
+                            <li class="list-group-item">
+                                <b>User Since</b><span class="pull-right">{{$user->created_at->diffForHumans()}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Last changes made</b><span class="pull-right">{{$user->updated_at->diffForHumans()}}</span>
+                            </li>
+                        </ul>
                     </div>
-                </div>  <!-- /.box -->
-            </div><!-- /.box info -->
-        </div><!-- /.row -->
-    </div>
-
-
-    <div class = row>
-        <div class="box-body">
-
-            <div class = col-md-3>
-                <img src="{{$user->photo ? $user->photo->file:'/img/avatar.png'}}" alt="" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
-            </div>
-
-            <div class = col-md-9>
-                @include('includes.form_error')
-
-
-                {!! Form::model($user, ['method'=>'PATCH', 'action'=>['UsersController@update', $user->id], 'files'=> true])!!}
-
-
-                <div class="form-group">
-                    {!!Form::label('name', 'Name:')!!}
-                    {!!Form::text('name', null, ['class'=>'form-control'])!!}
                 </div>
+            </div><!-- /.profile pic -->
+            <div class="col-md-9">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#personal" data-toggle="tab">Personal Information</a></li>
+                        <li><a href="#edit" data-toggle="tab">Update User Information</a></li>
+                       <!-- <li><a href="#password" data-toggle="tab">Change Password</a></li>-->
+                    </ul>
+                    <div class="tab-content">
+                        <!-- /.change personal -->
+                        <div class="active tab-pane" id="personal">
+                           <p>Will display personal information of employee only if it is already exsisting in HR department </p>
+                        </div>
+                        <!-- /.end personal-->
+                        <!-- /.change password -->
+                        <div class="tab-pane" id="password">
 
-                <div class="form-group">
-                    {!!Form::label('email', 'Email:')!!}
-                    {!!Form::email('email', null, ['class'=>'form-control'])!!}
-                </div>
+                        </div>
+                        <!-- /.end change pass -->
+                        <!-- /.Edit info -->
+                        <div class="tab-pane" id="edit">
+                            <div class ="box box-info">
+                                <br />
+                                <p class="text-bold text-black">
+                                    Note: Password needs to be chgange if user information is updated.
+                                    </p>
 
-                <div class="form-group">
-                    {!!Form::label('role_id', 'Role:')!!}
-                    {!!Form::select('role_id', [''=>'Choose Position'] + $roles, null, ['class'=>'form-control'])!!}
-                </div>
+                                {!! Form::model($user, ['method'=>'PATCH', 'action'=>['UsersController@update', $user->id], 'files'=> true])!!}
 
-                <div class="form-group form-control-required">
-                    {!!Form::label('department_id', 'Department:')!!}
-                    {!!Form::select('department_id', [''=>'Choose Department'] + $departments, null, ['class'=>'form-control'])!!}
-                </div>
+                                <div class="form-group">
+                                    {!!Form::label('name', 'Name:')!!}
+                                    {!!Form::text('name', null, ['class'=>'form-control'])!!}
+                                </div>
 
-                <div class="form-group">
-                    {!!Form::label('is_active', 'Status:')!!}
-                    {!!Form::select('is_active', array(1=>'Active',0=>'Inactive'),null,  ['class'=>'form-control'])!!}
-                </div>
+                                <div class="form-group">
+                                    {!!Form::label('email', 'Email:')!!}
+                                    {!!Form::email('email', null, ['class'=>'form-control'])!!}
+                                </div>
 
-                <div class="form-group">
-                    {!!Form::label('photo_id', 'Photo:')!!}
-                    {!!Form::file('photo_id',null , ['class'=>'form-control'])!!}
-                </div>
+                                <div class="form-group">
+                                    {!!Form::label('role_id', 'Role:')!!}
+                                    {!!Form::select('role_id', [''=>'Choose Position'] + $roles, null, ['class'=>'form-control'])!!}
+                                </div>
 
-                <div class="form-group">
-                    {!!Form::label('password', 'Password:')!!}
-                    {!!Form::password('password', ['class'=>'form-control'])!!}
-                </div>
+                                <div class="form-group form-control-required">
+                                    {!!Form::label('department_id', 'Department:')!!}
+                                    {!!Form::select('department_id', [''=>'Choose Department'] + $departments, null, ['class'=>'form-control'])!!}
+                                </div>
 
-                <div class = "form-group">
-                    {!!Form::submit('Update User', ['class'=>'btn btn-primary'])!!}
-                </div>
-            </div>
-            {!! Form::close() !!}
-        </div>
-    </div><!-- /.box-body -->
-    </div><!--/.row-->
+                                <div class="form-group">
+                                    {!!Form::label('is_active', 'Status:')!!}
+                                    {!!Form::select('is_active', array(1=>'Active',0=>'Inactive'),null,  ['class'=>'form-control'])!!}
+                                </div>
 
-    </div>
+                                <div class="form-group">
+                                    {!!Form::label('photo_id', 'Upload Another Photo:')!!}
+                                    {!!Form::file('photo_id',null , ['class'=>'form-control'])!!}
+                                </div>
+
+                                <div class="form-group">
+                                    {!!Form::label('password', 'Password:')!!}
+                                    {!!Form::password('password', ['class'=>'form-control'])!!}
+                                </div>
+                                <div class = "form-group">
+                                    {!!Form::submit('Update', ['class'=>'btn btn-primary'])!!}
+                                </div>
+
+                            </div>
+                            {!! Form::close() !!}
+
+
+                        </div>
+                        </div><!-- /end .Edit info -->
+                    </div>  <!-- /.tab-pane -->
+                </div> <!-- /.tab-content -->
+            </div>  <!-- /.nav-tabs-custom -->
+        </div> <!-- /.col -->
+    </div><!--main-->
 
 @endsection

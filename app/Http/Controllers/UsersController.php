@@ -113,11 +113,8 @@ class UsersController extends Controller
     public function update(UserEditRequest $request, $id)
     {
         //function for password
-        if(trim($request->password)== ' '){
-            $input= $request->except('password');
-        }else{
-            $input = $request->all(); // to persist data on database
-        }
+        $input = $request->all(); // to persist data on database
+
         // find the user with the selected id
         $user = User::findOrFail($id);
         $input = $request->all(); // to persist data on database
@@ -132,11 +129,12 @@ class UsersController extends Controller
             // will save photo id and name
             $input['photo_id'] = $photo->id;
         }
-        $input['password']= bcrypt($request->password); //to encrypt password
+        $input['password']= bcrypt($request->password);
         $user->Update($input); //will update the data on database
         Session::flash('updated_user', 'The user has been Updated');
         return redirect('/users');
     }
+
 
     /**
      * Remove the specified resource from storage.
