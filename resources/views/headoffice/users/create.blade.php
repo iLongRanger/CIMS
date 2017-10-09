@@ -55,8 +55,8 @@
                     </div>
 
                     <div class="form-group">
-                        {!!Form::label('photoID', 'Photo:')!!}
-                        {!!Form::file('photoID',null , ['class'=>'form-control'])!!}
+                        {!!Form::label('photo_id', 'Photo:')!!}
+                        {!!Form::file('photo_id',null , ['class'=>'form-control'])!!}
                     </div>
 
                     <div class="form-group">
@@ -74,6 +74,7 @@
                 </div>
                 <!-- /.box-body -->
             </div>
+        </div>
             <!-- /.box -->
 
             <!--</div>-->

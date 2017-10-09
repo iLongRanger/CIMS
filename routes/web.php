@@ -26,5 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('users/datatable', 'UsersController@datatable');
 Route::resource('users', 'UsersController');
+Route::get('/users/edit/{id}', 'UsersController@edit');
+Route::get('/users/delete/{id}', 'UsersController@destroy');
 
 });

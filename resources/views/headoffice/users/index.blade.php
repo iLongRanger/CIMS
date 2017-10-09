@@ -50,11 +50,9 @@
                                                     <tr>
 
 
-                                                      <!--  <th>Id</th>-->
+                                                        <th>User Number/th>
                                                         <th>Name</th>
                                                         <th>Email</th>
-                                                        <th>Role</th>
-                                                        <th>Department</th>
                                                         <th>Created At</th>
                                                         <th>Updated</th>
 
@@ -97,11 +95,9 @@
                 columns: [
 
 
-                 // { data: 'id', name: 'id' },
+                    { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
-                    { data: 'role_id', name: 'role_id' },
-                    { data: 'department_id', name: 'department_id' },
                     { data: 'created_at', name: 'created_at'     },
                     { data: 'updated_at', name: 'updated_at' }
 
