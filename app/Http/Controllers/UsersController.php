@@ -113,7 +113,7 @@ class UsersController extends Controller
     public function update(UserEditRequest $request, $id)
     {
         //function for password
-        $input = $request->all(); // to persist data on database
+       // $input = $request->all(); // to persist data on database
 
         // find the user with the selected id
         $user = User::findOrFail($id);

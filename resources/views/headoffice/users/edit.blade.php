@@ -56,7 +56,7 @@
                             <div class ="box box-info">
                                 <br />
                                 <p class="text-bold text-black">
-                                    Note: Password needs to be chgange if user information is updated.
+                                    Note: Password needs to be change if user information is updated.
                                     </p>
 
                                 {!! Form::model($user, ['method'=>'PATCH', 'action'=>['UsersController@update', $user->id], 'files'=> true])!!}

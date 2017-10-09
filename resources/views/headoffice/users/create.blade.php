@@ -75,9 +75,5 @@
                 <!-- /.box-body -->
             </div>
         </div>
-            <!-- /.box -->
-
-            <!--</div>-->
-        </div>
-    </div>
+    </div>  <!-- /.box -->
 @endsection

@@ -22,6 +22,17 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+    //department
+    Route::get('departments/datatable', 'DepartmentController@datatable');
+    Route::resource('departments', 'DepartmentController');
+    Route::get('/departments/edit/{id}', 'DepartmentController@edit');
+    Route::get('/departments/delete/{id}', 'DepartmentController@destroy');
+
+    //roles
+    Route::get('roles/datatable', 'DepartmentController@datatable');
+    Route::resource('roles', 'DepartmentController');
+    Route::get('/roles/edit/{id}', 'DepartmentController@edit');
+    Route::get('/roles/delete/{id}', 'DepartmentController@destroy');
 
 });
 
