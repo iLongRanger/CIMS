@@ -29,10 +29,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/departments/delete/{id}', 'DepartmentController@destroy');
 
     //roles
-    Route::get('roles/datatable', 'DepartmentController@datatable');
-    Route::resource('roles', 'DepartmentController');
-    Route::get('/roles/edit/{id}', 'DepartmentController@edit');
-    Route::get('/roles/delete/{id}', 'DepartmentController@destroy');
+    Route::get('roles/datatable', 'RoleController@datatable');
+    Route::resource('roles', 'RoleController');
+    Route::get('/roles/edit/{id}', 'RoleController@edit');
+    Route::get('/roles/delete/{id}', 'RoleController@destroy');
 
 });
 

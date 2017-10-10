@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\RoleRequest;
+use App\Role;
+use Yajra\DataTables\Facades\Datatables;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+
 
 class RoleController extends Controller
 {
@@ -11,9 +15,15 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function datatable()
+    {
+        return Datatables::of(Role::query())->make(true);
+    }
     public function index()
     {
-        //
+
+        return view('headoffice.role.index');
     }
 
     /**
@@ -23,7 +33,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('headoffice.role.create');
     }
 
     /**
@@ -32,9 +42,12 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        //
+        $input = $request->all();
+        Role::create($input); // will save everything on database
+        Session::flash('created_role', 'New Role has been created.');
+        return redirect('/roles');
     }
 
     /**
@@ -56,7 +69,8 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = Role::findOrFail($id);
+        return view('headoffice.role.edit', compact('role'));
     }
 
     /**
@@ -66,9 +80,13 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RoleRequest $request, $id)
     {
-        //
+        $role = Role::findOrFail($id);
+        $input = $request->all(); // to persist
+        $role->Update($input); //will update the data on database
+        Session::flash('updated_role', 'Role has been Updated');
+        return redirect('/roles');
     }
 
     /**
