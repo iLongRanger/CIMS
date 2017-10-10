@@ -36,7 +36,15 @@ desired effect
 
     @include('adminlte::layouts.partials.mainheader')
 
-    @include('adminlte::layouts.partials.sidebar')
+    @if (Auth::user()->department->name == "Human Resources")
+        @include('adminlte::layouts.partials.hrsidebar')
+    @elseif (Auth::user()->department->name  == "Head Office")
+        @include('adminlte::layouts.partials.sidebar')
+    @elseif (Auth::user()->department->name  == "Legal")
+        @include('adminlte::layouts.partials.legal-sidebar')
+
+    @endif
+
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
