@@ -13,7 +13,7 @@
             <!-- Default box -->
             <div class="box  box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Create New User</h3>
+                    <h3 class="box-title">Create New Customer Record</h3>
 
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -27,7 +27,7 @@
                     @include('includes.form_error')
 
 
-                    {!! Form::open(['method'=>'POST', 'action'=>'UsersController@store', 'files'=> true])!!}
+                    {!! Form::open(['method'=>'POST', 'action'=>'CustomersController@store', 'files'=> true])!!}
 
                     <div class="form-group">
                         {!!Form::label('name', 'Name:')!!}
@@ -35,23 +35,18 @@
                     </div>
 
                     <div class="form-group">
+                        {!!Form::label('address', 'Address:')!!}
+                        {!!Form::text('address', null, ['class'=>'form-control'])!!}
+                    </div>
+
+                    <div class="form-group">
+                        {!!Form::label('contact', 'Contact Number:')!!}
+                        {!!Form::text('contact', null, ['class'=>'form-control'])!!}
+                    </div>
+
+                    <div class="form-group">
                         {!!Form::label('email', 'Email:')!!}
-                        {!!Form::email('email', null, ['class'=>'form-control'])!!}
-                    </div>
-
-                    <div class="form-group">
-                        {!!Form::label('role_id', 'Role:')!!}
-                        {!!Form::select('role_id', [''=>'Choose Position'] + $roles, null, ['class'=>'form-control'])!!}
-                    </div>
-
-                    <div class="form-group form-control-required">
-                        {!!Form::label('department_id', 'Department:')!!}
-                        {!!Form::select('department_id', [''=>'Choose Department'] + $departments, null, ['class'=>'form-control'])!!}
-                    </div>
-
-                    <div class="form-group">
-                        {!!Form::label('is_active', 'Status:')!!}
-                        {!!Form::select('is_active', array(1=>'Active',0=>'Inactive'),0,  ['class'=>'form-control'])!!}
+                        {!!Form::text('email', null, ['class'=>'form-control'])!!}
                     </div>
 
                     <div class="form-group">
@@ -59,21 +54,14 @@
                         {!!Form::file('photo_id',null , ['class'=>'form-control'])!!}
                     </div>
 
-                    <div class="form-group">
-                        {!!Form::label('password', 'Password:')!!}
-                        {!!Form::password('password', ['class'=>'form-control'])!!}
-                    </div>
-
                     <div class = "form-group">
-                        {!!Form::submit('Create User', ['class'=>'btn btn-primary'])!!}
+                        {!!Form::submit('Create Customer', ['class'=>'btn btn-primary'])!!}
                     </div>
-
 
                     {!! Form::close() !!}
-
                 </div>
-                <!-- /.box-body -->
-            </div>
+            </div> <!-- /.box-body -->
         </div>
     </div>  <!-- /.box -->
+    <!--</div>-->
 @endsection

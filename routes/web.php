@@ -34,6 +34,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/roles/edit/{id}', 'RoleController@edit');
     Route::get('/roles/delete/{id}', 'RoleController@destroy');
 
+    //Customers for Spa
+    Route::get('customers/datatable', 'CustomersController@datatable');
+    Route::resource('customers', 'CustomersController');
+    Route::get('/customers/edit/{id}', 'CustomersController@edit');
+    Route::get('/customers/delete/{id}', 'CustomersController@destroy');
+
 });
 
 Route::group(['middleware' => 'admin'], function () {

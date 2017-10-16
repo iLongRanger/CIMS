@@ -42,6 +42,8 @@ desired effect
         @include('adminlte::layouts.partials.sidebar')
     @elseif (Auth::user()->department->name  == "Legal")
         @include('adminlte::layouts.partials.legal-sidebar')
+    @elseif (Auth::user()->department->name  == "Spa")
+        @include('adminlte::layouts.partials.spa-sidebar')
 
     @endif
 
