@@ -205,7 +205,7 @@
             </div><!--2nd column-->
         </div><!--/row-->
     </div>
-    </div>
+
     {!! Form::close() !!}
 
 @endsection
