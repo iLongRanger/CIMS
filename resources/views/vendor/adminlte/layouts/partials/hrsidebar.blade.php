@@ -41,8 +41,8 @@
             <li class="treeview">
                 <a href=""><i class="fa fa-user text-purple"></i><span>Employees</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="/users"><i class="fa fa-users text-blue"></i><span>All Employees</span></a></li>
-                    <li><a href="/users/create"><i class="fa fa-user-plus text-success"></i><span>New Employee</span></a></li>
+                    <li><a href="/employees"><i class="fa fa-users text-blue"></i><span>All Employees</span></a></li>
+                    <li><a href="/employees/create"><i class="fa fa-user-plus text-success"></i><span>New Employee</span></a></li>
                 </ul>
 
             </li>

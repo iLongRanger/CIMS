@@ -40,6 +40,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/customers/edit/{id}', 'CustomersController@edit');
     Route::get('/customers/delete/{id}', 'CustomersController@destroy');
 
+    //Employees for HR
+    Route::get('employees/datatable', 'EmployeesController@datatable');
+    Route::resource('employees', 'EmployeesController');
+    Route::get('/employees/edit/{id}', 'EmployeesController@edit');
+    Route::get('/employees/delete/{id}', 'EmployeesController@destroy');
+
 });
 
 Route::group(['middleware' => 'admin'], function () {
