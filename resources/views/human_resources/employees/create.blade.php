@@ -39,6 +39,8 @@
                 </li>
 
             </ul>
+            <br/>
+            @include('includes.form_error')
             {!! Form::open(['method'=>'POST', 'action'=>'EmployeesController@store', 'files'=> true])!!}
                 <div class="tab-content">
                     <div class="active tab-pane box-body" id="personal">
@@ -144,7 +146,7 @@
                         <div class="row">
                             <div class="form-group col-md-4">
                                 {!!Form::label('ename', 'Full name')!!}
-                                {!!Form::email('ename', null, ['class'=>'form-control','placeholder'=>'Enter full name'])!!}
+                                {!!Form::text('ename', null, ['class'=>'form-control','placeholder'=>'Enter full name'])!!}
                             </div>
                             <div class="form-group col-md-4">
                                 {!!Form::label('relationship', 'Relationship')!!}
@@ -153,12 +155,12 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-4">
-                                {!!Form::label('ephone', 'Phone number')!!}
-                                {!!Form::text('ephone', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
+                                {!!Form::label('econtact', 'Phone number')!!}
+                                {!!Form::text('econtact', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
                             </div>
                             <div class="form-group col-md-4">
-                                {!!Form::label('ealphone', 'Alternate Phone number')!!}
-                                {!!Form::text('ealphone', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
+                                {!!Form::label('ealcontact', 'Alternate Phone number')!!}
+                                {!!Form::text('ealcontact', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
                             </div>
                             <div class="form-group col-md-4">
                                 {!!Form::label('eaddress', 'Address')!!}
@@ -175,9 +177,9 @@
                                 {!!Form::label('employeeid', 'Employee Identification number')!!}
                                 {!!Form::text('employeeid', null, ['class'=>'form-control','placeholder'=>'Enter id number'])!!}
                             </div>
-                            <div class="form-group col-md-4">
-                                {!!Form::label('role_id', 'Position')!!}
-                                {!!Form::email('role_id', null, ['class'=>'form-control','placeholder'=>'change to drop down list'])!!}
+                            <div class="form-group">
+                                {!!Form::label('role_id', 'Role:')!!}
+                                {!!Form::select('role_id', [''=>'Choose Position'] + $roles, null, ['class'=>'form-control'])!!}
                             </div>
                         </div>
                         <div class="row">
@@ -185,9 +187,9 @@
                                 {!!Form::label('startdate', 'Start Date')!!}
                                 {!!Form::text('startdate', null, ['class'=>'form-control','placeholder'=>'MM/DD/YYYY'])!!}
                             </div>
-                            <div class="form-group col-md-4">
-                                {!!Form::label('department_id', 'Department')!!}
-                                {!!Form::text('department_id', null, ['class'=>'form-control','placeholder'=>'Enter Department'])!!}
+                            <div class="form-group form-control-required">
+                                {!!Form::label('department_id', 'Department:')!!}
+                                {!!Form::select('department_id', [''=>'Choose Department'] + $departments, null, ['class'=>'form-control'])!!}
                             </div>
                             <div class="form-group col-md-4">
                                 {!!Form::label('salary', 'Salary')!!}
