@@ -7,205 +7,200 @@
 
 @section('main-content')
 
-    <h3 class="box-title">Create New Employee Record</h3>
 
-    <div class="row">
-        <!-- left column -->
-        <div class="col-md-6">
-            <!-- general form elements -->
-            <div class="box box-info">
-                <div class="box-header with-border">
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>
-                    <h3 class="box-title">Personal Information</h3>
-                </div>
+    <div class="col-md-12">
+        <h3 class ="text-success text-capitalize text-center">Create new employee record</h3>
 
-                @include('includes.form_error')
-                {!! Form::open(['method'=>'POST', 'action'=>'DepartmentController@store', 'files'=> true])!!}
-                    <div class="box-body">
-                        <div class="form-group">
-                            {!!Form::label('lastname', 'Last Name:')!!}
-                            {!!Form::text('lastname', null, ['class'=>'form-control','placeholder'=>'Enter last Name'])!!}
-                        </div>
-                        <div class="form-group">
-                            {!!Form::label('firstname', 'First Name:')!!}
-                            {!!Form::text('firstname', null, ['class'=>'form-control','placeholder'=>'Enter First Name'])!!}
-                        </div>
-                        <div class="form-group">
-                            {!!Form::label('middlename', 'Middle Name:')!!}
-                            {!!Form::text('middlename', null, ['class'=>'form-control','placeholder'=>'Enter middle name'])!!}
-                        </div>
-                        <div class="form-group">
-                            {!!Form::label('age', 'Age:')!!}
-                            {!!Form::text('age', null, ['class'=>'form-control','placeholder'=>'Enter age'])!!}
-                        </div>
-                        <div class="form-group">
-                            {!!Form::label('bday', 'Birthday:')!!}
-                            {!!Form::text('bday', null, ['class'=>'form-control','placeholder'=>'mm/dd/yyyy'])!!}
-                        </div>
-                        <div class="form-group">
-                            {!!Form::label('bplace', 'Birth Place:')!!}
-                            {!!Form::text('bplace', null, ['class'=>'form-control','placeholder'=>'Enter birth place'])!!}
-                        </div>
-                        <div class="form-group">
-                            {!!Form::label('marital', 'Marital Status:')!!}
-                            {!!Form::text('marital', null, ['class'=>'form-control','placeholder'=>'This should be a drop down list'])!!}
-                        </div>
-                        <div class="form-group">
-                            {!!Form::label('sname', 'Spouse Name:')!!}
-                            {!!Form::text('sname', null, ['class'=>'form-control','placeholder'=>'Enter spouse name'])!!}
-                        </div>
-
-                    </div>
-                <!--form-->
-            </div>
-        </div>
-
-        <!-- right column -->
-        <div class="col-md-6">
-            <!-- general form elements -->
-            <div class="box box-info">
-                <div class="box-header with-border">
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>
-                    <h3 class="box-title">Contact Information</h3>
-                </div>
-                <div class="box-body">
-                    <div class="form-group">
-                        {!!Form::label('email', 'Email Address:')!!}
-                        {!!Form::text('email', null, ['class'=>'form-control','placeholder'=>'example@example.com'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('phone', 'Phone Number:')!!}
-                        {!!Form::text('phone', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('home', 'Home Number:')!!}
-                        {!!Form::text('home', null, ['class'=>'form-control','placeholder'=>'000-00-00'])!!}
-                    </div>
-                </div>
-            </div>
-
-            <div class="box box-info">
-                <div class="box-header with-border">
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>
-                    <h3 class="box-title">Emergency Contact Information</h3>
-                </div>
-                <div class="box-body">
-                    <div class="form-group">
-                        {!!Form::label('ecname', 'Full Name:')!!}
-                        {!!Form::text('ecname', null, ['class'=>'form-control','placeholder'=>'Enter Full Name'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecphone', 'Phone Number:')!!}
-                        {!!Form::text('ecphone', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecaddress', 'Address:')!!}
-                        {!!Form::text('ecaddress', null, ['class'=>'form-control','placeholder'=>'Enter address'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecrelationship', 'Relationship:')!!}
-                        {!!Form::text('ecrelationship', null, ['class'=>'form-control','placeholder'=>'Enter relationship'])!!}
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </div><!--/row-->
-
-    <div class="box box-info">
-        <div class="box-header with-border">
-            <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                    <i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                    <i class="fa fa-times"></i>
-                </button>
-            </div>
-            <h3 class="box-title">Job Information</h3>
-        </div>
-        <div class="row">
-            <div class ="col-md-6">
-                <div class="box-body">
-                    <div class="form-group">
-                        {!!Form::label('ecname', 'Full Name:')!!}
-                        {!!Form::text('ecname', null, ['class'=>'form-control','placeholder'=>'Enter Full Name'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecphone', 'Phone Number:')!!}
-                        {!!Form::text('ecphone', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecaddress', 'Address:')!!}
-                        {!!Form::text('ecaddress', null, ['class'=>'form-control','placeholder'=>'Enter address'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecrelationship', 'Relationship:')!!}
-                        {!!Form::text('ecrelationship', null, ['class'=>'form-control','placeholder'=>'Enter relationship'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecname', 'Full Name:')!!}
-                        {!!Form::text('ecname', null, ['class'=>'form-control','placeholder'=>'Enter Full Name'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecphone', 'Phone Number:')!!}
-                        {!!Form::text('ecphone', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
-                    </div>
-                </div>
-            </div><!--1st column-->
-            <div class ="col-md-6">
-                <div class="box-body">
-                    <div class="form-group">
-                        {!!Form::label('ecname', 'Full Name:')!!}
-                        {!!Form::text('ecname', null, ['class'=>'form-control','placeholder'=>'Enter Full Name'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecphone', 'Phone Number:')!!}
-                        {!!Form::text('ecphone', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecaddress', 'Address:')!!}
-                        {!!Form::text('ecaddress', null, ['class'=>'form-control','placeholder'=>'Enter address'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecrelationship', 'Relationship:')!!}
-                        {!!Form::text('ecrelationship', null, ['class'=>'form-control','placeholder'=>'Enter relationship'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecname', 'Full Name:')!!}
-                        {!!Form::text('ecname', null, ['class'=>'form-control','placeholder'=>'Enter Full Name'])!!}
-                    </div>
-                    <div class="form-group">
-                        {!!Form::label('ecphone', 'Phone Number:')!!}
-                        {!!Form::text('ecphone', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
-                    </div>
-                </div>
-            </div><!--2nd column-->
-        </div><!--/row-->
     </div>
+    <div class="col-md-12">
+        <div class="nav-tabs-custom">
 
-    {!! Form::close() !!}
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#personal" data-toggle="tab">
+                        <img src="/img/icons/personal.png" width="50" height="50" alt="Personal Information" toggle="tooltip" title="Personal Information"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact" data-toggle="tab">
+                        <img src="/img/icons/contact.png" width="50" height="50" alt="Contact Information" toggle="tooltip" title="Contact Information"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#emergency" data-toggle="tab">
+                        <img src="/img/icons/emergency.png" width="50" height="50" alt="Emergency Contact Number" toggle="tooltip" title="Emergency Contact Number"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#job" data-toggle="tab">
+                       <img src="/img/icons/job.png" width="50" height="50" alt="Job Title" toggle="tooltip" title="Job Title"/>
+                    </a>
+
+                </li>
+
+            </ul>
+            {!! Form::open(['method'=>'POST', 'action'=>'EmployeesController@store', 'files'=> true])!!}
+                <div class="tab-content">
+                    <div class="active tab-pane box-body" id="personal">
+                        <div class="alert alert-info alert-dismissible">
+                        <p>Personal Information</p>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                {!!Form::label('photo_id', 'Employee Photo (200x200px)')!!}
+                                {!!Form::file('photo_id',null , ['class'=>'form-control'])!!}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                {!!Form::label('lastname', 'Last name')!!}
+                                {!!Form::text('lastname', null, ['class'=>'form-control','placeholder'=>'Enter last Name'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('firstname', 'First name')!!}
+                                {!!Form::text('firstname', null, ['class'=>'form-control','placeholder'=>'Enter first Name'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('middlename', 'Middle name')!!}
+                                {!!Form::text('middlename', null, ['class'=>'form-control','placeholder'=>'Enter middle Name'])!!}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                {!!Form::label('street', 'Street')!!}
+                                {!!Form::text('street', null, ['class'=>'form-control','placeholder'=>'Enter street name'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('houseno', 'House Number')!!}
+                                {!!Form::text('houseno', null, ['class'=>'form-control','placeholder'=>'Enter house number'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('brgy', 'Barangay')!!}
+                                {!!Form::text('brgy', null, ['class'=>'form-control','placeholder'=>'Enter city'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('city', 'City')!!}
+                                {!!Form::text('city', null, ['class'=>'form-control','placeholder'=>'Enter city'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('region', 'Region')!!}
+                                {!!Form::text('region', null, ['class'=>'form-control','placeholder'=>'Enter region'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('zipcode', 'Zipcode')!!}
+                                {!!Form::text('zipcode', null, ['class'=>'form-control','placeholder'=>'Enter zipcode'])!!}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                {!!Form::label('birthdate', 'Birth Date')!!}
+                                {!!Form::text('birthdate', null, ['class'=>'form-control','placeholder'=>'MM/DD/YYYY'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('birthplace', 'Birth Place')!!}
+                                {!!Form::text('birthplace', null, ['class'=>'form-control','placeholder'=>'City Name'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('marital_id', 'Status')!!}
+                                {!!Form::text('marital_id', null, ['class'=>'form-control','placeholder'=>'change this to drop down list'])!!}
+                            </div>
+
+                        </div>
+                    </div><!--END PERSONAL TAB-->
+
+                    <div class="tab-pane box-body" id="contact">
+                        <div class="alert alert-info alert-dismissible">
+                            <p>Contact Information</p>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                {!!Form::label('phone', 'Phone number')!!}
+                                {!!Form::text('phone', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('aphone', 'Alternate Phone number')!!}
+                                {!!Form::text('aphone', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('hphone', 'Home Phone number')!!}
+                                {!!Form::text('hphone', null, ['class'=>'form-control','placeholder'=>'000-00-00'])!!}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                {!!Form::label('email', 'Email Address')!!}
+                                {!!Form::email('email', null, ['class'=>'form-control','placeholder'=>'example@domain.com'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('facebook', 'Facebook Link')!!}
+                                {!!Form::text('facebook', null, ['class'=>'form-control','placeholder'=>'facebook.com/username'])!!}
+                            </div>
+                        </div>
+                    </div><!--END OF  CONTACT INFORMATION-->
+                    <div class="tab-pane box-body" id="emergency">
+                        <div class="alert alert-info alert-dismissible">
+                            <p>Emergency Contact Person</p>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                {!!Form::label('ename', 'Full name')!!}
+                                {!!Form::email('ename', null, ['class'=>'form-control','placeholder'=>'Enter full name'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('relationship', 'Relationship')!!}
+                                {!!Form::text('relationship', null, ['class'=>'form-control','placeholder'=>'Enter relationship'])!!}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                {!!Form::label('ephone', 'Phone number')!!}
+                                {!!Form::text('ephone', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('ealphone', 'Alternate Phone number')!!}
+                                {!!Form::text('ealphone', null, ['class'=>'form-control','placeholder'=>'0000-000-0000'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('eaddress', 'Address')!!}
+                                {!!Form::text('eaddress', null, ['class'=>'form-control','placeholder'=>'Enter complete address'])!!}
+                            </div>
+                        </div>
+                    </div><!--END OF  EMERGENCY CONTACT PERSON-->
+                    <div class="tab-pane box-body" id="job">
+                        <div class="alert alert-info alert-dismissible">
+                            <p>Job Title</p>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                {!!Form::label('employeeid', 'Employee Identification number')!!}
+                                {!!Form::text('employeeid', null, ['class'=>'form-control','placeholder'=>'Enter id number'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('role_id', 'Position')!!}
+                                {!!Form::email('role_id', null, ['class'=>'form-control','placeholder'=>'change to drop down list'])!!}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                {!!Form::label('startdate', 'Start Date')!!}
+                                {!!Form::text('startdate', null, ['class'=>'form-control','placeholder'=>'MM/DD/YYYY'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('department_id', 'Department')!!}
+                                {!!Form::text('department_id', null, ['class'=>'form-control','placeholder'=>'Enter Department'])!!}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {!!Form::label('salary', 'Salary')!!}
+                                {!!Form::text('salary', null, ['class'=>'form-control','placeholder'=>'.00'])!!}
+                            </div>
+                            <div class = "form-group pull-left col-md-3">
+                                {!!Form::submit('Create Employee Record', ['class'=>'btn btn-success'])!!}
+                            </div>
+                        </div>
+                    </div><!--END OF JOB TITLE-->
+                </div><!-- /.tab content -->
+            {!! Form::close() !!}
+        </div> <!-- /.nav custom tab -->
+    </div> <!-- /.end col -->
 
 @endsection

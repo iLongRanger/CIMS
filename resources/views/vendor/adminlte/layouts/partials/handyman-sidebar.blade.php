@@ -44,9 +44,7 @@
                     <li><a href="/"><i class="fa fa-users text-blue"></i><span>Handyman Modules</span></a></li>
                     <li><a href="/"><i class="fa fa-user-plus text-success"></i><span>Handyman Modules</span></a></li>
                 </ul>
-
             </li>
-
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

@@ -29,13 +29,12 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="skin-red  sidebar-mini">
+<body class="skin-purple img-responsive">
 <div id="app" v-cloak>
     <div class="wrapper">
 
 
     @include('adminlte::layouts.partials.mainheader')
-
     @if (Auth::user()->department->name == "Human Resources")
         @include('adminlte::layouts.partials.hrsidebar')
     @elseif (Auth::user()->department->name  == "Head Office")
@@ -52,7 +51,6 @@ desired effect
         @include('adminlte::layouts.partials.handyman-sidebar')
     @elseif (Auth::user()->department->name  == "Marketing")
         @include('adminlte::layouts.partials.marketing-sidebar')
-
     @endif
 
 
@@ -69,8 +67,9 @@ desired effect
     </div><!-- /.content-wrapper -->
 
     @include('adminlte::layouts.partials.controlsidebar')
-
     @include('adminlte::layouts.partials.footer')
+
+    <!--add the footer here-->
 
 </div><!-- ./wrapper -->
 </div>

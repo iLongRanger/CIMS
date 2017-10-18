@@ -1,5 +1,5 @@
 <!-- Main Footer -->
-<footer class="main-footer">
+<footer class="main-footer box-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
         <a href=""></a><b>Centralized Information Management System CIMS v.0</b></a>.
