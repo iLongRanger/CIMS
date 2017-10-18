@@ -37,12 +37,12 @@
             <li class="active">
                 <a href="{{ url('home') }}"><i class='fa fa-home text-red'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a>
             </li>
-            <li class="header text-center"><span>LEGAL</span></li>
+            <li class="header text-center"><span>ACCOUNTING</span></li>
             <li class="treeview">
-                <a href=""><i class="fa fa-user text-purple"></i><span>Legal Module</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href=""><i class="fa fa-user text-purple"></i><span>Accounting Module</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="/"><i class="fa fa-users text-blue"></i><span>Legal Module</span></a></li>
-                    <li><a href="/"><i class="fa fa-user-plus text-success"></i><span>New Employee</span></a></li>
+                    <li><a href="/"><i class="fa fa-users text-blue"></i><span>Accounting Module</span></a></li>
+                    <li><a href="/"><i class="fa fa-user-plus text-success"></i><span>Accounting Module</span></a></li>
                 </ul>
 
             </li>

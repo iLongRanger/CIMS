@@ -44,6 +44,14 @@ desired effect
         @include('adminlte::layouts.partials.legal-sidebar')
     @elseif (Auth::user()->department->name  == "Spa")
         @include('adminlte::layouts.partials.spa-sidebar')
+    @elseif (Auth::user()->department->name  == "Auditing")
+        @include('adminlte::layouts.partials.auditing-sidebar')
+    @elseif (Auth::user()->department->name  == "Accounting")
+        @include('adminlte::layouts.partials.accounting-sidebar')
+    @elseif (Auth::user()->department->name  == "Handyman Repairs")
+        @include('adminlte::layouts.partials.handyman-sidebar')
+    @elseif (Auth::user()->department->name  == "Marketing")
+        @include('adminlte::layouts.partials.marketing-sidebar')
 
     @endif
 
