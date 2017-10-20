@@ -9,8 +9,11 @@ class Employees extends Model
     protected $fillable = [
         'photo_id','lastname','firstname','middlename','street','houseno','city','region','brgy',
         'zipcode', 'birthdate', 'birthplace', 'marital_id', 'aphone','phone', 'hphone', 'email',
-        'facebook', 'ename', 'relationship', 'eaddress', 'econtact','ealcontact','employeeid', 'role_id', 'department_id', 'salary', '',
+        'facebook', 'ename', 'relationship', 'eaddress', 'econtact','ealcontact','employeeid', 'role_id','started_date', 'department_id', 'salary', '',
     ];
+
+   
+
 
     public function role(){
 

@@ -36,18 +36,20 @@
             <div class="col-md-9">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#personal" data-toggle="tab">Personal Information</a></li>
+                       <!-- <li class="active"><a href="#personal" data-toggle="tab">Personal Information</a></li>-->
                         <li><a href="#edit" data-toggle="tab">Update User Information</a></li>
                        <!-- <li><a href="#password" data-toggle="tab">Change Password</a></li>-->
                     </ul>
                     <div class="tab-content">
                         <!-- /.change personal -->
-                        <div class="active tab-pane" id="personal">
-                           <p>Will display personal information of employee only if it is already exsisting in HR department </p>
-                        </div>
+                        <!--<div class="active tab-pane" id="personal">
+                             
+                              
+                           
+                        </div>-->
                         <!-- /.end personal-->
                         <!-- /.change password -->
-                        <div class="tab-pane" id="password">
+                        <div class="active tab-pane" id="password">
 
                         </div>
                         <!-- /.end change pass -->

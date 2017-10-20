@@ -6,12 +6,13 @@ use App\Http\Requests\UserEditRequest;
 use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use App\User;
+use App\Employees;
 use App\Role;
 use App\Photo;
 use App\Department;
 use Yajra\DataTables\Facades\Datatables;
 use Illuminate\Support\Facades\Session;
-
+use DB;
 
 
 class UsersController extends Controller
@@ -44,6 +45,9 @@ class UsersController extends Controller
      */
     public function create()
     {
+       // $names=Employees::select(DB::raw("CONCAT(firstname,' ',middlename, ' ' , lastname) AS name"),'id')->pluck('name', 'id');
+        //$names = Employees::pluck('firstname', 'id')->all();
+        //$employeeid=Employees::pluck('employeeid')->all();
         $roles = Role::pluck('name', 'id')->all();
         $departments = Department::pluck('name', 'id')->all();
         return view('headoffice.users.create', compact('roles', 'departments'));
@@ -96,11 +100,12 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        $employees = Employees::all();
         $roles = Role::pluck('name', 'id')->all();
         $departments = Department::pluck('name', 'id')->all();
         $user = User::findorFail($id); // to edit the selected user
-        return view ('headoffice.users.edit', compact('user', 'roles', 'departments')); // will display user with the id selected on edit view
+        return view ('headoffice.users.edit', compact('employees','user', 'roles', 'departments')); // will display user with the id selected on edit view
     }
 
     /**

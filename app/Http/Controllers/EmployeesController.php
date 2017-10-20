@@ -18,9 +18,15 @@ class EmployeesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function datatable()
+    {
+        return Datatables::of(Employees::query())->make(true);
+    }
     public function index()
     {
-        //
+        $employees = Employees::all();
+        return view('human_resources.employees.index', compact('employees'));
     }
 
     /**
@@ -30,9 +36,10 @@ class EmployeesController extends Controller
      */
     public function create()
     {
+       
         $roles = Role::pluck('name', 'id')->all();
         $departments = Department::pluck('name', 'id')->all();
-        return view("human_resources.employees.create" ,compact('roles', 'departments') );
+        return view("human_resources.employees.create" ,compact('employees','roles', 'departments') );
     }
 
     /**
@@ -75,7 +82,10 @@ class EmployeesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $roles = Role::pluck('name', 'id')->all();
+        $departments = Department::pluck('name', 'id')->all();
+        $employees = Employees::findorFail($id); // to edit the selected user
+        return view ('human_resources.employees.edit', compact('employees', 'roles', 'departments')); // will display user with the id selected on edit view
     }
 
     /**
@@ -87,7 +97,22 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $employee = Employees::findOrFail($id);
+        $input = $request->all(); // to persist data on database
+        //check if photo is existing
+        if($file = $request->file('photo_id')){
+            //make a name for the photo
+            $name = time(). $file->getClientOriginalName();
+            //move to images folder
+            $file->move('images' , $name);
+            //create a photo
+            $photo= Photo::create(['file'=>$name]);
+            // will save photo id and name
+            $input['photo_id'] = $photo->id;
+        }
+        $employee->Update($input); //will update the data on database
+        Session::flash('updated_employee', 'Record has been Updated');
+        return redirect('/employees');
     }
 
     /**

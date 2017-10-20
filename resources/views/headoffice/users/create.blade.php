@@ -29,8 +29,9 @@
 
                     {!! Form::open(['method'=>'POST', 'action'=>'UsersController@store', 'files'=> true])!!}
 
+
                     <div class="form-group">
-                        {!!Form::label('name', 'Name:')!!}
+                        {!!Form::label('name', 'Full Name')!!}
                         {!!Form::text('name', null, ['class'=>'form-control'])!!}
                     </div>
 

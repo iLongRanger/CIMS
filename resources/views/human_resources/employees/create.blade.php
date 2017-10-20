@@ -4,13 +4,18 @@
     {{ trans('adminlte_lang::message.home') }}
 @endsection
 
-
 @section('main-content')
 
-
-    <div class="col-md-12">
-        <h3 class ="text-success text-capitalize text-center">Create new employee record</h3>
-
+    <div class = "box-body col-md-4">
+        <div class="info-box ">
+            <span class="info-box-icon bg-green">
+                <i class="ion ion-ios-people-outline"></i>
+            </span>
+            <div class="info-box-content">
+                <br/>
+                <span class="info-box-text"><h5>New Employee Record</h5></span>
+            </div>
+        </div>
     </div>
     <div class="col-md-12">
         <div class="nav-tabs-custom">
@@ -106,6 +111,8 @@
                                 {!!Form::label('marital_id', 'Status')!!}
                                 {!!Form::text('marital_id', null, ['class'=>'form-control','placeholder'=>'change this to drop down list'])!!}
                             </div>
+                            
+                            
 
                         </div>
                     </div><!--END PERSONAL TAB-->
@@ -177,7 +184,7 @@
                                 {!!Form::label('employeeid', 'Employee Identification number')!!}
                                 {!!Form::text('employeeid', null, ['class'=>'form-control','placeholder'=>'Enter id number'])!!}
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-4">
                                 {!!Form::label('role_id', 'Role:')!!}
                                 {!!Form::select('role_id', [''=>'Choose Position'] + $roles, null, ['class'=>'form-control'])!!}
                             </div>
@@ -187,7 +194,7 @@
                                 {!!Form::label('startdate', 'Start Date')!!}
                                 {!!Form::text('startdate', null, ['class'=>'form-control','placeholder'=>'MM/DD/YYYY'])!!}
                             </div>
-                            <div class="form-group form-control-required">
+                            <div class="form-group form-control-required col-md-4">
                                 {!!Form::label('department_id', 'Department:')!!}
                                 {!!Form::select('department_id', [''=>'Choose Department'] + $departments, null, ['class'=>'form-control'])!!}
                             </div>

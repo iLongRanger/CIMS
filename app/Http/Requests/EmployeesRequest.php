@@ -47,6 +47,7 @@ class EmployeesRequest extends FormRequest
             'ealcontact' => 'required',
             'employeeid' => 'required',
             'role_id' => 'required',
+            'started_date'=>'required',
             'department_id' => 'required',
             'salary' => 'required',
         ];
