@@ -113,8 +113,8 @@
                                         {!!Form::text('birthplace', null, ['class'=>'form-control','placeholder'=>'City Name'])!!}
                                     </div>
                                     <div class="form-group col-md-4">
-                                        {!!Form::label('marital_id', 'Status')!!}
-                                        {!!Form::text('marital_id', null, ['class'=>'form-control','placeholder'=>'change this to drop down list'])!!}
+                                        {!!Form::label('marital_id', 'Civil Status')!!}
+                                        {!!Form::select('marital_id', [''=>'Choose Status'] +array('Single' => 'Single', 'Married' => 'Married','Widdowed' => 'Widdowed'), '' ,  ['class'=>'form-control'])!!}
                                     </div>
                                 </div>
                             </div><!--END PERSONAL TAB-->

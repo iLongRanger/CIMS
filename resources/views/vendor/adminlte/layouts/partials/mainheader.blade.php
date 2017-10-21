@@ -6,10 +6,10 @@
     <a href="{{ url('/home') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini">
+            <img src="/img/icons/main.png" width="50" height="50" alt="Vifi Icon"/>
         </span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg">
-            <img src="/img/icons/main.png" width="50" height="50" alt="Vifi Icon"/>
             <b>ViFi</b> 
         </span>
     </a>

@@ -29,7 +29,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="skin-purple img-responsive sidebar-mini">
+<body class="skin-purple  sidebar-mini">
 <div id="app" v-cloak>
     <div class="wrapper">
 
@@ -68,9 +68,8 @@ desired effect
 
         @include('adminlte::layouts.partials.controlsidebar')
         @include('adminlte::layouts.partials.footer')
-    </div><!--add the footer here-->
-
-</div><!-- ./wrapper -->
+    </div>
+</div>
 
 
 @section('scripts')

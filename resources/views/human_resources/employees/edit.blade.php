@@ -120,7 +120,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 {!!Form::label('marital_id', 'Status')!!}
-                                {!!Form::text('marital_id', null, ['class'=>'form-control','placeholder'=>'change this to drop down list'])!!}
+                                {!!Form::text('marital_id', null, ['class'=>'form-control','placeholder'=>'Ex. Single, Married, Widdowed'])!!}
                             </div>
                             
                             
