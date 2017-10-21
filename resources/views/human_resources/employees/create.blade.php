@@ -106,7 +106,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-4">
                                         {!!Form::label('birthdate', 'Birth Date')!!}
-                                        {!!Form::text('birthdate', null, ['class'=>'form-control','placeholder'=>'MM/DD/YYYY'])!!}
+                                        {!!Form::date('birthdate', null, ['class'=>'form-control','placeholder'=>'MM/DD/YYYY'])!!}
                                     </div>
                                     <div class="form-group col-md-4">
                                         {!!Form::label('birthplace', 'Birth Place')!!}
