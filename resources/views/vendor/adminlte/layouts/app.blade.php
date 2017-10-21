@@ -29,58 +29,55 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="skin-purple img-responsive">
+<body class="skin-purple img-responsive sidebar-mini">
 <div id="app" v-cloak>
     <div class="wrapper">
 
 
-    @include('adminlte::layouts.partials.mainheader')
-    @if (Auth::user()->department->name == "Human Resources")
-        @include('adminlte::layouts.partials.hrsidebar')
-    @elseif (Auth::user()->department->name  == "Head Office")
-        @include('adminlte::layouts.partials.sidebar')
-    @elseif (Auth::user()->department->name  == "Legal")
-        @include('adminlte::layouts.partials.legal-sidebar')
-    @elseif (Auth::user()->department->name  == "Spa")
-        @include('adminlte::layouts.partials.spa-sidebar')
-    @elseif (Auth::user()->department->name  == "Auditing")
-        @include('adminlte::layouts.partials.auditing-sidebar')
-    @elseif (Auth::user()->department->name  == "Accounting")
-        @include('adminlte::layouts.partials.accounting-sidebar')
-    @elseif (Auth::user()->department->name  == "Handyman Repairs")
-        @include('adminlte::layouts.partials.handyman-sidebar')
-    @elseif (Auth::user()->department->name  == "Marketing")
-        @include('adminlte::layouts.partials.marketing-sidebar')
-    @endif
+        @include('adminlte::layouts.partials.mainheader')
+        @if (Auth::user()->department->name == "Human Resources")
+            @include('adminlte::layouts.partials.hrsidebar')
+        @elseif (Auth::user()->department->name  == "Head Office")
+            @include('adminlte::layouts.partials.sidebar')
+        @elseif (Auth::user()->department->name  == "Legal")
+            @include('adminlte::layouts.partials.legal-sidebar')
+        @elseif (Auth::user()->department->name  == "Spa")
+            @include('adminlte::layouts.partials.spa-sidebar')
+        @elseif (Auth::user()->department->name  == "Auditing")
+            @include('adminlte::layouts.partials.auditing-sidebar')
+        @elseif (Auth::user()->department->name  == "Accounting")
+            @include('adminlte::layouts.partials.accounting-sidebar')
+        @elseif (Auth::user()->department->name  == "Handyman Repairs")
+            @include('adminlte::layouts.partials.handyman-sidebar')
+        @elseif (Auth::user()->department->name  == "Marketing")
+            @include('adminlte::layouts.partials.marketing-sidebar')
+        @endif
 
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
 
-        @include('adminlte::layouts.partials.contentheader')
+            @include('adminlte::layouts.partials.contentheader')
 
-        <!-- Main content -->
-        <section class="content">
-            <!-- Your Page Content Here -->
-            @yield('main-content')
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
+            <!-- Main content -->
+            <section class="content">
+                <!-- Your Page Content Here -->
+                @yield('main-content')
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
 
-    @include('adminlte::layouts.partials.controlsidebar')
-    @include('adminlte::layouts.partials.footer')
-
-    <!--add the footer here-->
+        @include('adminlte::layouts.partials.controlsidebar')
+        @include('adminlte::layouts.partials.footer')
+    </div><!--add the footer here-->
 
 </div><!-- ./wrapper -->
-</div>
+
+
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
     <script src="/js/datatable.js" type="text/javascript"></script>
     @stack('scripts')
     <link href='/css/datatable.css' rel='stylesheet' type='text/css'>
-
-
-
 
 @show
 

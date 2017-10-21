@@ -23,17 +23,17 @@
 
         <div class="login-box-body">
             <div class="login-logo">
-                <a href="{{ url('/home') }}"><h3><b>Centralized Information Management System </b>v.0</h3></a>
+                 <img src="img/icons/main.png" class="img-circle img-responsive" alt="Main Icon" />
+                <a href="{{ url('/home') }}"><h3><b>Virtual Filing Mangement Solution</b>v.0</h3></a>
             </div><!-- /.login-logo -->
         <p class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>
 
         <login-form name="{{ config('auth.providers.users.field','email') }}"
-                    domain="{{ config('auth.defaults.domain','') }}"></login-form>
+                    domain="{{ config('auth.defaults.domain','') }}">
+                    </login-form>
 
-        <!--@include('adminlte::auth.partials.social_login')
-
-        <a href="{{ url('/password/reset') }}">{{ trans('adminlte_lang::message.forgotpassword') }}</a><br>
-        <!--<a href="{{ url('/register') }}" class="text-center">{{ trans('adminlte_lang::message.registermember') }}</a>-->
+        
+        
 
     </div>
 
