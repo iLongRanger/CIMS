@@ -76,9 +76,10 @@ desired effect
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
     <script src="/js/datatable.js" type="text/javascript"></script>
+    <script src="/plugins/bootstrap-datepicker.js" type="text/javascript"></script>`
     @stack('scripts')
     <link href='/css/datatable.css' rel='stylesheet' type='text/css'>
-
+    
 @show
 
 </body>

@@ -51,7 +51,9 @@
                                                 <tr>
                                                     <th>Record No.</th>
                                                     <th>Employee Id</th>
-                                                    <th>Name</th>
+                                                    <th>First Name</th>
+                                                    <th>Middle Name</th>
+                                                    <th>Last Name</th>
                                                     <th>Phone Number</th>
                                                     <th>Email Address</th>
                                                 </tr>
@@ -83,7 +85,7 @@
             processing: true,
             serverSide: true,
             search: {
-                caseInsensitive: true
+                caseInsensitive: false
             },
 
             ajax: 'http://cims.dev/employees/datatable',
@@ -91,7 +93,10 @@
             columns: [
                 { data: 'id', name: 'id' },
                 { data: 'employeeid', name: 'employeeid' },
-                { data: function (data,type,dataToset){return data.lastname+ " "+ data.firstname+", "+data.middlename;}},
+                { data: 'firstname', name: 'firstname' },
+                { data: 'middlename', name: 'middlename' },
+                { data: 'lastname', name: 'lastname' },
+                //{ data: function (data,type,dataToset){return data.lastname+ " "+ data.firstname+", "+data.middlename;}},
                 { data: 'phone', name: 'phone' },
                 { data: 'email', name: 'email' },
 

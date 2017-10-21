@@ -50,17 +50,18 @@ class EmployeesController extends Controller
      */
     public function store(EmployeesRequest $request)
     {
-        $input = $request->all();
-        if ($file =$request->file('photo_id')){ // will validate if photo existed before saving to database
-            $name = time() .$file->getClientOriginalName(); // will get the name og the photo from the user with a time appended on it
-            $file->move('images', $name); //will move the photo on images directory with a name on it
-            $photo=Photo::create(['file'=>$name]); // create the photo
-            $input['photo_id'] = $photo->id; // will save photo id and name
-        }
-        Employees::create($input); // will save everything on database
-        Session::flash('created_employee', 'New Employee record has been created.');
-        return redirect('/employees');
-
+       
+            $input = $request->all();
+            if ($file =$request->file('photo_id')){ // will validate if photo existed before saving to database
+                $name = time() .$file->getClientOriginalName(); // will get the name og the photo from the user with a time appended on it
+                $file->move('images', $name); //will move the photo on images directory with a name on it
+                $photo=Photo::create(['file'=>$name]); // create the photo
+                $input['photo_id'] = $photo->id; // will save photo id and name
+            }
+            Employees::create($input); // will save everything on database
+            Session::flash('created_employee', 'New Employee record has been created.');
+            return redirect('/employees');
+        
     }
 
     /**
