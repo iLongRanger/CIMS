@@ -9,7 +9,7 @@
     <div class="container-fluid spark-screen" xmlns:margin-right="http://www.w3.org/1999/xhtml"
          xmlns:border-radius="http://www.w3.org/1999/xhtml" xmlns:float="http://www.w3.org/1999/xhtml"
          xmlns:height="http://www.w3.org/1999/xhtml">
-
+    <div class box = "box-header">
         <div class="row">
             @include('includes.form_error')
             <div class="col-md-3">
@@ -49,12 +49,12 @@
                         </div>-->
                         <!-- /.end personal-->
                         <!-- /.change password -->
-                        <div class="active tab-pane" id="password">
+                        <div class=" tab-pane" id="password">
 
                         </div>
                         <!-- /.end change pass -->
                         <!-- /.Edit info -->
-                        <div class="tab-pane" id="edit">
+                        <div class="active tab-pane" id="edit">
                             <div class ="box box-info">
                                 <br />
                                 <p class="text-bold text-black">

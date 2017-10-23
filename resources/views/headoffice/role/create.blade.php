@@ -6,12 +6,16 @@
 
 
 @section('main-content')
-    <div class="container-fluid spark-screen text-black">
+
+    <div class="box-header text-black">
+
         <div class="row">
             <!--<div class="col-md-8 col-md-offset-2">-->
 
             <!-- Default box -->
+            
             <div class="box  box-info">
+            
                 <div class="box-header with-border">
                     <h3 class="box-title">Create New Role</h3>
 
@@ -22,7 +26,8 @@
                             <i class="fa fa-times"></i></button>
                     </div>
                 </div>
-                <div class="box-body">
+                    
+                <div class=" box-header">
 
                     @include('includes.form_error')
 

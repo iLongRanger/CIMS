@@ -22,7 +22,7 @@
                             <i class="fa fa-times"></i></button>
                     </div>
                 </div>
-                <div class="box-body">
+                <div class="box-header">
 
                     @include('includes.form_error')
 

@@ -5,8 +5,6 @@
 @endsection
 
 @section('main-content')
-
-
     <div class = "box-header with-border">
         <div clas= "container-fluid">
             <div class = "box-body col-md-4">
@@ -120,7 +118,7 @@
                             </div><!--END PERSONAL TAB-->
 
                             <div class="tab-pane box-body" id="contact">
-                                <div class = "box-header with-border">
+                                    
                                     <div class="alert alert-info alert-dismissible">
                                         <p>Contact Information</p>
                                     </div>

@@ -29,56 +29,55 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="skin-purple  sidebar-mini">
+<body class="skin-purple sidebar-mini">
 <div id="app" v-cloak>
     <div class="wrapper">
 
 
         @include('adminlte::layouts.partials.mainheader')
+
         @if (Auth::user()->department->name == "Human Resources")
-            @include('adminlte::layouts.partials.hrsidebar')
+            @include('adminlte::layouts.partials.sidebars.hrsidebar')
         @elseif (Auth::user()->department->name  == "Head Office")
-            @include('adminlte::layouts.partials.sidebar')
+            @include('adminlte::layouts.partials.sidebars.sidebar')
         @elseif (Auth::user()->department->name  == "Legal")
-            @include('adminlte::layouts.partials.legal-sidebar')
+            @include('adminlte::layouts.partials.sidebars.legal-sidebar')
         @elseif (Auth::user()->department->name  == "Spa")
-            @include('adminlte::layouts.partials.spa-sidebar')
+            @include('adminlte::layouts.partials.sidebars.spa-sidebar')
         @elseif (Auth::user()->department->name  == "Auditing")
-            @include('adminlte::layouts.partials.auditing-sidebar')
+            @include('adminlte::layouts.partials.sidebars.auditing-sidebar')
         @elseif (Auth::user()->department->name  == "Accounting")
-            @include('adminlte::layouts.partials.accounting-sidebar')
+            @include('adminlte::layouts.partials.sidebars.accounting-sidebar')
         @elseif (Auth::user()->department->name  == "Handyman Repairs")
-            @include('adminlte::layouts.partials.handyman-sidebar')
+            @include('adminlte::layouts.partials.sidebars.handyman-sidebar')
         @elseif (Auth::user()->department->name  == "Marketing")
-            @include('adminlte::layouts.partials.marketing-sidebar')
+            @include('adminlte::layouts.partials.sidebars.marketing-sidebar')
         @endif
 
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                @include('adminlte::layouts.partials.contentheader')
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Your Page Content Here -->
+                    @yield('main-content')
+                </section><!-- /.content -->
+               
+            </div><!-- /.content-wrapper -->
 
-            @include('adminlte::layouts.partials.contentheader')
-
-            <!-- Main content -->
-            <section class="content">
-                <!-- Your Page Content Here -->
-                @yield('main-content')
-            </section><!-- /.content -->
-        </div><!-- /.content-wrapper -->
-
-        @include('adminlte::layouts.partials.controlsidebar')
         @include('adminlte::layouts.partials.footer')
+        @include('adminlte::layouts.partials.controlsidebar')
     </div>
+     
 </div>
 
 
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
     <script src="/js/datatable.js" type="text/javascript"></script>
-    <script src="/plugins/bootstrap-datepicker.js" type="text/javascript"></script>`
     @stack('scripts')
     <link href='/css/datatable.css' rel='stylesheet' type='text/css'>
-    
 @show
 
 </body>
