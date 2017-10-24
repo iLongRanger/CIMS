@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2017 at 05:50 PM
+-- Generation Time: Oct 24, 2017 at 04:55 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -19,6 +19,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `cims`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `branches`
+--
+
+CREATE TABLE `branches` (
+  `branch_code` varchar(20) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `manager` varchar(250) NOT NULL,
+  `Address` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `branches`
+--
+
+INSERT INTO `branches` (`branch_code`, `name`, `manager`, `Address`) VALUES
+('123456', 'Main', '', '');
 
 -- --------------------------------------------------------
 
@@ -222,6 +242,26 @@ INSERT INTO `photos` (`id`, `file`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `poslogs`
+--
+
+CREATE TABLE `poslogs` (
+  `id` int(11) NOT NULL,
+  `date` varchar(250) NOT NULL,
+  `branch` varchar(250) NOT NULL,
+  `user` varchar(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `poslogs`
+--
+
+INSERT INTO `poslogs` (`id`, `date`, `branch`, `user`) VALUES
+(1722223260, '2017 10 24', 'Main', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `roles`
 --
 
@@ -269,11 +309,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `employee_id`, `role_id`, `is_active`, `department_id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `photo_id`) VALUES
-(1, '', 1, 1, 1, 'Ralp Jeff  Ortiz', 'rortiz0305@gmail.com', '$2y$10$uaRz/b7MHnSDcFj232q8oeqvpJXvHuq9iCh3vJj7FjsS80QbyMAB2', 'i3dPLNipLn8QoIraPNTA3j6ZvMOvATx5APkG1vn3KINNWtaPbBAEV5QEvZ87', '2017-10-09 02:36:09', '2017-10-19 22:09:28', 11),
+(1, '', 1, 1, 1, 'Ralp Jeff  Ortiz', 'rortiz0305@gmail.com', '$2y$10$uaRz/b7MHnSDcFj232q8oeqvpJXvHuq9iCh3vJj7FjsS80QbyMAB2', 'nbVEGCDMoNEHoVGZ3hiTP8TT36RfAvjogyPR5bgllD9t0HZNN6PSGiUxaDzi', '2017-10-09 02:36:09', '2017-10-19 22:09:28', 11),
 (2, '', 1, 0, 1, 'Christine Marie R. Velez', 'christine@yahoo.com', '$2y$10$5dMSNUl1A8y0XMrn9raBO.GnFRigpn1uXUqexypabdGjcDmznCmyy', 'KgMlJiYW9THO4Gq2KGm2yXStgXYbbkGIJ6144BzvCrDr7JuwoPRg83taxcGg', '2017-10-09 07:18:31', '2017-10-21 02:23:03', 5),
-(3, '', 1, 1, 5, 'Human Resources Person', 'hr@human.com', '$2y$10$VvQZFJy1oGGC0QnqVDv/Qed8ova0qNG2Hazp47IHaj9atfTLT41Ai', 'eCYZmZDPbIOFUitC57ejqjhSFk4gF2ysDiiZwAHhduZci7h8oyQzQeMFtX4w', '2017-10-09 19:23:21', '2017-10-19 22:10:12', 19),
+(3, '', 1, 1, 5, 'Human Resources Person', 'hr@human.com', '$2y$10$VvQZFJy1oGGC0QnqVDv/Qed8ova0qNG2Hazp47IHaj9atfTLT41Ai', 'yIS5R8C1bOkc3C4wqf3v900c5Ubqu1vJzWblnzQs5i9grSFFyVWLnIANADlZ', '2017-10-09 19:23:21', '2017-10-19 22:10:12', 19),
 (4, '', 1, 1, 2, 'Attorney Legal', 'legal@legal.com', '$2y$10$NQ4ThpJWFEBXveEwUZeEZu1QOq2bGENa0R4BVNopxWf2XFBuE7SsO', '8KeDjxzXTslNT2UXduK4rnaua9vKjAMJHKfIfzlMUWLpQyRdAXQD2QFpfW0l', '2017-10-09 19:25:56', '2017-10-19 22:10:32', 18),
-(5, '', 1, 1, 6, 'Theraphist', 'spa@spa.com', '$2y$10$0orGfCFpak2R.qb3EWr3pulpr6YczVCvUM9uJS4rS2LSKhfxt5vjC', '167e1vExp8x6Bk2JCAvc1CZRSGXe6uiMXqj7TStl02RSteXl4wdUsYJ3YU0Y', '2017-10-15 21:49:22', '2017-10-19 22:10:59', 31),
+(5, '', 1, 1, 6, 'Theraphist', 'spa@spa.com', '$2y$10$0orGfCFpak2R.qb3EWr3pulpr6YczVCvUM9uJS4rS2LSKhfxt5vjC', 'miSG9ft8cvs1H92MZxZaLYjmME5BFYvK6HVw7GS8NUvTexsHxxzyhnWolbJc', '2017-10-15 21:49:22', '2017-10-19 22:10:59', 31),
 (6, '', 1, 1, 3, 'Accountant Person', 'accountant@accounts.com', '$2y$10$F3KTTOY78Y3IwWUJc19WS.ri4QTdgDrLcWENuAWcAsPoGu2dXJ0.2', '6iMA3s4TYgTrjZ2E4tB2KpQMzwSbm7meDsLj1bLFm88TwhHBWaVAaOtF1d9B', '2017-10-18 04:44:43', '2017-10-19 22:11:19', 17),
 (7, '', 1, 1, 7, 'Auditor Audits', 'auditor@audit.com', '$2y$10$oDeLzkp1w37mHDhdg6F4vu/MJv61gxpqjG70QFtEd2yGKCPmgI3JC', 'agz8kAQBU9EjhLNqRv8VyYmr2ggHVN77vpfnzsmuCXO3I2nzKKCWeuQjM2ZP', '2017-10-18 04:49:26', '2017-10-19 22:11:32', 20),
 (8, '', 1, 1, 8, 'Someone who sells something', 'marketing@market.com', '$2y$10$A0xFUquoOHsX3gblKRGry.wfBJi.RUmj/T3Vdvag.IornrVWTGQ3O', 'Xkmvv5tv0eMWlegsmq776j0SbfcdBWEY2tF9AhuqVRpEPTAtqwnCQXNGlMDQ', '2017-10-18 04:50:49', '2017-10-19 22:11:49', 21),
@@ -284,6 +324,12 @@ INSERT INTO `users` (`id`, `employee_id`, `role_id`, `is_active`, `department_id
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `branches`
+--
+ALTER TABLE `branches`
+  ADD PRIMARY KEY (`branch_code`);
 
 --
 -- Indexes for table `customers`
@@ -326,6 +372,12 @@ ALTER TABLE `password_resets`
 -- Indexes for table `photos`
 --
 ALTER TABLE `photos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `poslogs`
+--
+ALTER TABLE `poslogs`
   ADD PRIMARY KEY (`id`);
 
 --
